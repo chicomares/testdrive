@@ -34,7 +34,7 @@ body, html {
 /* Second image (Portfolio) */
 .bgimg-2 {
     background-image: url('http://s3.amazonaws.com/production.mediajoint.prx.org/public/series_images/15048/frank-siniatra_medium.jpg');
-    min-height: 400px;
+    min-height: 100%;
 }
 
 /* Third image (Contact) */
@@ -82,7 +82,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF POOP</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF PULP</span>
   </div>
 </div>
 
@@ -187,7 +187,7 @@ body, html {
 <!-- Second Parallax Image with Portfolio Text -->
 <div class="bgimg-2 w3-display-container w3-opacity-min">
   <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
+    <span class="w3-xxlarge w3-text-white w3-wide">VALENCE</span>
   </div>
 </div>
 
@@ -219,7 +219,7 @@ body, html {
 <p>But why did this happen? One first plausible is that super-euphoric songs have progressively become out of fashion. Between the 1960s and the 1980s, around a third of the songs had an average valence above 0.8. In 2016, only 4 songs were had such a high score. </p> 
 <p>The number of very depressive songs (below 0.2), on the other hand, remained stable over the years. This means that modern pop music tend to be in the mid ranges. </p>
 <div class="chart-wrapper" id="valencechart2"><script type="text/javascript">
-    d3.csv('valencebyrange3.csv', function(error, data) {
+    d3.csv('valencebyrange4.csv', function(error, data) {
     data.forEach(function (d) {
         d.year = +d.year;
         d.euphoric = +d.euphoric;
@@ -235,7 +235,7 @@ body, html {
 	'Between 0.4 and 0.6': {column: 'midrange'},
         'Between 0.2 and 0.4': {column: 'sad'},
 	'Below 0.2': {column: 'depressive'},
-    }, {xAxis: 'Years', yAxis: '% of songs'});
+    }, {xAxis: 'Decade', yAxis: '% of songs'});
     chart.bind("#valencechart2");
     chart.render();
 
