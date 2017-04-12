@@ -90,8 +90,7 @@ body, html {
 <div class="w3-content w3-container w3-padding-64" id="project">
   <h3 class="w3-center">THE PROJECT</h3>
   <p class="w3-center"><em>An attempt to tell the history of our times through music and data</em></p>
-  <div class="chart-wrapper" id="chart-line1"></div>
-  <script type="text/javascript">
+  <div class="chart-wrapper" id="chart-line1"><script type="text/javascript">
     d3.csv('zeitgeist2.csv', function(error, data) {
     data.forEach(function (d) {
         d.year = +d.year;
@@ -112,7 +111,8 @@ body, html {
     chart.render();
 
 });
-  </script>
+  </script></div>
+  
   <p>Music is arguably the strongest mark of an era. Think of the 1980s, what was the first thing that came to mind? To most of us, is the reverb of the snare, the artificial pitch of the synth, maybe When Doves Cry guitar solo – the music, always the music. </p>
   <p>Because of that, to analyse what people were listening to over the decades is a way to tell the history society itself. One of the ways to do so is by analysing how it evolved one year after another using data. That’s where Spotify comes in. </p>
   <p>The company holds metrics for all the songs it hosts. These metrics include numerical values to assess how danceable, how energetic and how positive they are; their duration and tempo; their key and mode; and, also, whether they’re instrumental, acoustic, or live. These metrics are available for anyone to use at Spotify’s API. </p>
@@ -197,8 +197,7 @@ body, html {
 <div class="w3-content w3-container w3-padding-64" id="valence">
   <h3 class="w3-center">VALENCE</h3>
   <p class="w3-center"><em>Valence is how Spotify measures the positivity of a song. The closer it is to 1, the more positive it is.</em></p>
-  <div class="chart-wrapper" id="chart-line2"></div>
-  <script type="text/javascript">
+  <div class="chart-wrapper" id="chart-line1"><script type="text/javascript">
     d3.csv('valenceyear.csv', function(error, data) {
     data.forEach(function (d) {
         d.year = +d.year;
@@ -214,13 +213,13 @@ body, html {
     chart.render();
 
 });
-  </script>
+  </script></div>
+  
 <p>Think of the 1990s. Heavy guitar riffs, heroin addicts wearing flannel shirts and singing about suicide. To say that this decade was the exact moment when our popular music started to get darker, sadder and angrier is not a surprise by any means. What is surprising, though, is that Celine Dion has more to do with it then Kurt Cobain. </p>
 <p>In 1963, the average valence for a Billboard Top 100 song was 0.69. During the following 25 years, it oscillated between 0.63 and 0.67. Around the end of the 1980s, it started to drop dramatically. First, to around 0.55, in the mid-90s. After a slight and brief recovery in the early 2000s, it dropped again, until it fell below 0.50 in the mid-2010s. </p>
 <p>But why did this happen? One first plausible is that super-euphoric songs have progressively become out of fashion. Between the 1960s and the 1980s, around a third of the songs had an average valence above 0.8. In 2016, only 4 songs were had such a high score. </p> 
 <p>The number of very depressive songs (below 0.2), on the other hand, remained stable over the years. This means that modern pop music tend to be in the mid ranges. </p>
-<div class="chart-wrapper" id="chart-line3"></div>
-  <script type="text/javascript">
+<div class="chart-wrapper" id="chart-line1"><script type="text/javascript">
     d3.csv('valencebyrange.csv', function(error, data) {
     data.forEach(function (d) {
         d.year = +d.year;
@@ -242,7 +241,8 @@ body, html {
     chart.render();
 
 });
-  </script>
+  </script></div>
+  
   <h3>Majors and minors</h3>
 <p>What might also have contributed to this decrease in valence of the average hit is the fact minor scales have become more popular amongst composers. Back in the 1950s, between 10% and 20% of the popular songs were written in minor scales, whereas in 2016 43% of the hits were in such keys. </p>
 <div class="w3-row">
