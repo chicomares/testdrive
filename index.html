@@ -92,7 +92,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF PUN</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF FOI?</span>
   </div>
 </div>
 
@@ -162,7 +162,7 @@ body, html {
  </div>
   <p class="w3-large w3-center w3-padding-16">Women on the charts:</p>
   <p class="w3-wide w3-center">Since 1941</p>
-<div class="w3-center"><script>
+<div class="w3-center" id="women1"><script>
 
 var width = 960,
     height = 500,
@@ -206,6 +206,8 @@ d3.csv("women1.csv", type, function(error, data) {
 function type(d) {
   d.number = +d.number;
   return d;
+  chart.bind("#women1");
+  chart.render();
 }
 
 </script></div>
