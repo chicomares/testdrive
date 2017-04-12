@@ -7,7 +7,9 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="multiline.css">
+<script src="jquery-3.1.1.min.js" charset="utf-8"></script>	
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="pie-chart.js" charset="utf-8"></script>	
 <script src="multiline.js" charset="utf-8"></script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
@@ -150,10 +152,14 @@ body, html {
 <p>Working with these two smaller datasets, it was possible to make some qualitative analysis beyond the raw data from Spotify. </p>
 <p>One particular thing that caught my attention is the evolution of women in music. Before 1975, very few songs in these datasets were sung by woman – 15%. Since 1975, this number raised to 39%. Although this is just a sample of the entire data, it still shows how music tells the story of our society. </p> 
  </div>
-  <p class="w3-large w3-center w3-padding-16">Im really good at:</p>
-  <p class="w3-wide"><i class="fa fa-camera"></i>Photography</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
+  <p class="w3-large w3-center w3-padding-16">Women on the charts:</p>
+  <p class="w3-wide"><i class="fa fa-camera"></i>Since 1941</p>
+  <pie-chart data="data" options="options"></pie-chart>
+	<script> $scope.data = [
+  {label: "one", value: 12.2, color: "red"}, 
+  {label: "two", value: 45, color: "#00ff00"},
+  {label: "three", value: 10, color: "rgb(0, 0, 255)"}
+		];</script>
   </div>
   <p class="w3-wide"><i class="fa fa-laptop"></i>Web Design</p>
   <div class="w3-light-grey">
