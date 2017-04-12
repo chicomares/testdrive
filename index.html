@@ -106,11 +106,8 @@ body, html {
     var chart = makeLineChart(data, 'year', {
         'Average danceability': {column: 'danceability'},
         'Average energy': {column: 'energy'},
-	'Average valence': {column: 'valence'},
-	'Artist': {column: 'artist'},
-        'Track': {column: 'track'},
-	'Chart Position': {column: 'position'},    
-    }, {xAxis: 'Years', yAxis: 'Amount'});
+	'Average valence': {column: 'valence'},	  
+    }, {xAxis: 'Years', yAxis: 'Metric'});
     chart.bind("#chart-line1");
     chart.render();
 
