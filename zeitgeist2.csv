@@ -1,0 +1,77 @@
+﻿year,artist,track,position,danceability,energy,valence
+1941,Jimmy Dorsey,My Sister & I,16,0.501,0.243,0.498
+1942,Jimmy Dorsey and His Orchestra,Tangerine,7,0.487,0.153,0.398
+1943,Glenn Miller,Juke Box Saturday Night,22,0.468,0.221,0.539
+1944,Harry James,Cherry,28,0.514,0.256,0.485
+1945,Frankie Carle,A Little On The Lonely Side,51,0.471,0.273,0.526
+1946,Frankie Carle,Oh! What It Seemed To Be,6,0.493,0.199,0.451
+1947,Eddy Howard,My Adobe Hacienda,23,0.533,0.263,0.584
+1948,Kay Kyser,On a Slow Boat to China,33,0.489,0.227,0.628
+1949,Al Morgan,Jealous Heart,10,0.455,0.181,0.502
+1950,Gordon Jenkins and The Weavers,Goodnight Irene,1,0.333,0.262,0.532
+1951,Weavers,On Top Of Old Smoky,6,0.429,0.342,0.619
+1952,Eddie Fisher and Hugo Winterhalter,Tell Me Why,28,0.548,0.269,0.462
+1953,Teresa Brewer,Till I Waltz Again With You,6,0.477,0.263,0.384
+1954,Tony Bennett,Rags To Riches,27,0.408,0.347,0.558
+1955,Frank Sinatra,Learnin’ The Blues,14,0.497,0.327,0.619
+1956,Diamonds,Why Do Fools Fall in Love,75,0.426,0.429,0.573
+1957,Johnnie and Joe,Over the Mountain Across the Sea,67,0.553,0.471,0.694
+1958,Playmates,Beep Beep (The Little Nash Rambler),60,0.564,0.497,0.716
+1959,Connie Francis,Frankie,61,0.565,0.496,0.699
+1960,Johnny Burnette,Dreamin’,86,0.5,0.46,0.757
+1961,Johnny Tillotson,Without You,37,0.537,0.558,0.712
+1962,Corsairs,Smoky Places,51,0.605,0.483,0.73
+1963,Ned Miller,From A Jack To A King,74,0.59,0.555,0.695
+1964,Louis Armstrong,Hello Dolly,3,0.515,0.496,0.647
+1965,Sir Douglas Quintet,She’s About A Mover,65,0.612,0.561,0.7
+1966,Herman’s Hermits,Dandy,91,0.543,0.604,0.639
+1967,Jefferson Airplane,Somebody To Love,33,0.504,0.578,0.64
+1968,Sergio Mendes and Brasil ’66,The Look Of Love,36,0.593,0.503,0.629
+1969,Youngbloods,Get Together,16,0.533,0.58,0.643
+1970,Mountain,Mississippi Queen,78,0.58,0.624,0.662
+1971,Partridge Family,I Woke Up In Love This Morning,88,0.589,0.601,0.714
+1972,Arlo Guthrie,The City Of New Orleans,45,0.616,0.577,0.587
+1973,Marvin Gaye,Let’s Get It On,4,0.553,0.637,0.669
+1974,Love Unlimited Orchestra,Love’s Theme,3,0.586,0.614,0.733
+1975,Wings,Listen To What The Man Said,41,0.52,0.563,0.649
+1976,Who,Squeeze Box,99,0.648,0.647,0.682
+1977,Boz Scaggs,Lido Shuffle,74,0.591,0.624,0.645
+1978,ABBA,The Name Of The Game,97,0.62,0.646,0.638
+1979,Pointer Sisters,Fire,15,0.65,0.615,0.628
+1980,Olivia Newton-John,Magic,3,0.635,0.64,0.609
+1981,Champaign,How ‘Bout Us,45,0.557,0.578,0.542
+1982,Huey Lewis and The News,Do You Believe In Love,51,0.617,0.593,0.727
+1983,Tom Petty and The Heartbreakers,You Got Lucky,97,0.687,0.67,0.614
+1984,Huey Lewis and The News,I Want A New Drug,55,0.663,0.691,0.704
+1985,Dire Straits,Money For Nothing,8,0.666,0.667,0.681
+1986,Survivor,Burning Heart,8,0.659,0.626,0.658
+1987,Fleetwood Mac,Big Love,81,0.639,0.757,0.642
+1988,Foreigner,Say You Will,73,0.72,0.72,0.64
+1989,Edie Brickell and The New Bohemians,What I Am,84,0.679,0.68,0.571
+1990,Wilson Phillips,Hold On,1,0.679,0.657,0.558
+1991,Roxette,Joyride,23,0.651,0.74,0.607
+1992,Richard Marx,Take This Heart,81,0.612,0.694,0.541
+1993,Jade,One Woman,98,0.662,0.605,0.547
+1994,Jodeci,Cry For You,60,0.65,0.675,0.57
+1995,Az,Sugar Hill,84,0.683,0.648,0.533
+1996,Planet Soul,Set U Free,85,0.636,0.645,0.723
+1997,En Vogue,Don’t Let Go (Love),1,0.618,0.688,0.561
+1998,Third Eye Blind,How’s It Going To Be,11,0.562,0.593,0.543
+1999,TLC,Unpretty,20,0.648,0.622,0.511
+2000,Sonique,It Feels So Good,34,0.642,0.638,0.591
+2001,Missy “Misdemeanor” Elliott,One Minute Man,57,0.622,0.669,0.569
+2002,John Mayer,No Such Thing,42,0.668,0.739,0.569
+2003,Ginuwine feat. Baby,Hell Yeah,74,0.631,0.714,0.638
+2004,Baby Bash feat. Frankie J,Suga Suga,46,0.662,0.748,0.54
+2005,50 Cent,Just a Lil Bit,17,0.689,0.66,0.538
+2006,Rihanna,SOS,19,0.677,0.671,0.526
+2007,Baby Bash feat. T-Pain,Cyclone,84,0.641,0.72,0.574
+2008,Leona Lewis,Better In Time,53,0.584,0.7,0.532
+2009,Miley Cyrus,Party in the U.S.A.,29,0.652,0.698,0.477
+2010,The Script,Breakeven,27,0.63,0.696,0.51
+2011,Chris Brown,She Ain’t You,89,0.634,0.716,0.608
+2012,Demi Lovato,Give Your Heart A Break,39,0.645,0.691,0.618
+2013,Miley Cyrus,We Can't Stop,17,0.608,0.631,0.514
+2014,OneRepublic,Counting Stars,5,0.663,0.705,0.477
+2015,iLoveMakonnen feat. Drake,Tuesday,82,0.784,0.651,0.508
+2016,Selena Gomez,Same Old Love,40,0.675,0.603,0.434
