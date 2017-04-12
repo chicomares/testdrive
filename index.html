@@ -86,7 +86,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF ai!</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF sinatra!</span>
   </div>
 </div>
 
@@ -155,7 +155,7 @@ body, html {
 <p>One particular thing that caught my attention is the evolution of women in music. Before 1975, very few songs in these datasets were sung by woman – 15%. Since 1975, this number raised to 39%. Although this is just a sample of the entire data, it still shows how music tells the story of our society. </p> 
  </div>
   <p class="w3-large w3-center w3-padding-16">Women on charts:</p>
-  <div id="women" style="width: 480px; height: 400px;"></div>
+  <div class="w3-center" id="women" style="width: 960px; height: 800px;"></div>
   <script>var data = [{
   values: [51,11,1,7],
   labels: ['Male singers', 'Female singers', 'Duets', 'Instrumental'],
@@ -186,22 +186,22 @@ var layout = {
         size: 14
       },
       showarrow: false,
-      text: 'GHG',
+      text: 'Before 1975',
       x: 0.17,
-      y: 0.5
+      y: 0.1
     },
     {
       font: {
         size: 14
       },
       showarrow: false,
-      text: 'CO2',
+      text: 'After 1975',
       x: 0.82,
-      y: 0.5
+      y: 0.1
     }
   ],
-  height: 400,
-  width: 480
+  height: 800,
+  width: 960
 };
 	  
   Plotly.newPlot('women', data, layout);</script>	
