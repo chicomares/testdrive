@@ -82,7 +82,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF PORK</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF SINATRA</span>
   </div>
 </div>
 
@@ -95,15 +95,18 @@ body, html {
     d3.csv('zeitgeist.csv', function(error, data) {
     data.forEach(function (d) {
         d.year = +d.year;
-        d.danceability = +d.danceability;
+        d.artist = +d.artist;
+        d.track = +d.track;
+	d.position = +d.position;
+	d.danceability = +d.danceability;
         d.energy = +d.energy;
-		d.valence = +d.valence;         
+	d.valence = +d.valence;    
     });
 
     var chart = makeLineChart(data, 'year', {
         'Average danceability': {column: 'danceability'},
         'Average energy': {column: 'energy'},
-		'Average valence': {column: 'valence'},
+	'Average valence': {column: 'valence'},
     }, {xAxis: 'Years', yAxis: 'Amount'});
     chart.bind("#chart-line1");
     chart.render();
