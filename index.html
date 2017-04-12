@@ -11,6 +11,15 @@
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="multiline.js" charset="utf-8"></script>
 <style>
+.arc text {
+	font: 10px sans-serif;
+	text-anchor: middle;
+}
+
+.arc path {
+  	stroke: #fff;
+}
+
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
 body, html {
     height: 100%;
@@ -152,8 +161,8 @@ body, html {
 <p>One particular thing that caught my attention is the evolution of women in music. Before 1975, very few songs in these datasets were sung by woman – 15%. Since 1975, this number raised to 39%. Although this is just a sample of the entire data, it still shows how music tells the story of our society. </p> 
  </div>
   <p class="w3-large w3-center w3-padding-16">Women on the charts:</p>
-  <p class="w3-wide">Since 1941</p>
-<div><script>
+  <p class="w3-wide w3-center">Since 1941</p>
+<div class="w3-center"><script>
 
 var width = 960,
     height = 500,
@@ -199,7 +208,7 @@ function type(d) {
   return d;
 }
 
-	</script></div>
+</script></div>
 	
 	
 <!-- Second Parallax Image with Portfolio Text -->
