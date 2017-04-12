@@ -10,6 +10,8 @@
 <script src="jquery-3.1.1.min.js" charset="utf-8"></script>	
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="multiline.js" charset="utf-8"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>	
 <style>
 
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
@@ -84,7 +86,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF sds!</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF ai!</span>
   </div>
 </div>
 
@@ -152,123 +154,57 @@ body, html {
 <p>Working with these two smaller datasets, it was possible to make some qualitative analysis beyond the raw data from Spotify. </p>
 <p>One particular thing that caught my attention is the evolution of women in music. Before 1975, very few songs in these datasets were sung by woman – 15%. Since 1975, this number raised to 39%. Although this is just a sample of the entire data, it still shows how music tells the story of our society. </p> 
  </div>
-  <p class="w3-large w3-center w3-padding-16">Women on the charts:</p>
-  <div id="women"><form><script>
+  <p class="w3-large w3-center w3-padding-16">Women on charts:</p>
+  <div id="women" style="width: 480px; height: 400px;"></div>
+  <script>var data = [{
+  values: [51,11,1,7],
+  labels: ['Male singers', 'Female singers', 'Duets', 'Instrumental'],
+  domain: {
+    x: [0, .48]
+  },
+  name: 'Before 1975',
+  hoverinfo: 'label+percent+name',
+  hole: .4,
+  type: 'pie'
+},{
+  values: [47,32,3,0],
+  labels: ['Male singers', 'Female singers', 'Duets', 'Instrumental'],
+  text: 'After 1975',
+  textposition: 'inside',
+  domain: {x: [.52, 1]},
+  name: 'After 1975',
+  hoverinfo: 'label+percent+name',
+  hole: .4,
+  type: 'pie'
+}];
 
-var width = 960,
-    height = 500,
-    radius = Math.min(width, height) / 2;
-
-var color = d3.scale.category20();
-
-var pie = d3.layout.pie()
-    .value(function(d) { return d.number; })
-    .sort(null);
-
-var arc = d3.svg.arc()
-    .innerRadius(radius - 100)
-    .outerRadius(radius - 20);
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-  .append("g")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-var path = svg.selectAll("path");
-
-d3.csv("totalwomen.csv", type, function(error, data) {
-  var typesByYear = d3.nest()
-      .key(function(d) { return d.year; })
-      .entries(data)
-      .reverse();
-
-  var label = d3.select("form").selectAll("label")
-      .data(typesByYear)
-    .enter().append("label");
-
-  label.append("input")
-      .attr("type", "radio")
-      .attr("name", "year")
-      .attr("value", function(d) { return d.key; })
-      .on("change", change)
-    .filter(function(d, i) { return !i; })
-      .each(change)
-      .property("checked", true);
-
-  label.append("span")
-      .text(function(d) { return d.key; });
-
-  function change(type) {
-    var data0 = path.data(),
-        data1 = pie(type.values);
-
-    path = path.data(data1, key);
-
-    path.enter().append("path")
-        .each(function(d, i) { this._current = findNeighborArc(i, data0, data1, key) || d; })
-        .attr("fill", function(d) { return color(d.data.type); })
-      .append("title")
-        .text(function(d) { return d.data.type; });
-
-    path.exit()
-        .datum(function(d, i) { return findNeighborArc(i, data1, data0, key) || d; })
-      .transition()
-        .duration(750)
-        .attrTween("d", arcTween)
-        .remove();
-
-    path.transition()
-        .duration(750)
-        .attrTween("d", arcTween);
-  }
-});
-
-function key(d) {
-  return d.data.type;
-}
-
-function type(d) {
-  d.number = +d.number;
-  return d;
-}
-
-function findNeighborArc(i, data0, data1, key) {
-  var d;
-  return (d = findPreceding(i, data0, data1, key)) ? {startAngle: d.endAngle, endAngle: d.endAngle}
-      : (d = findFollowing(i, data0, data1, key)) ? {startAngle: d.startAngle, endAngle: d.startAngle}
-      : null;
-}
-
-// Find the element in data0 that joins the highest preceding element in data1.
-function findPreceding(i, data0, data1, key) {
-  var m = data0.length;
-  while (--i >= 0) {
-    var k = key(data1[i]);
-    for (var j = 0; j < m; ++j) {
-      if (key(data0[j]) === k) return data0[j];
+var layout = {
+  title: 'Women & Charts - 1941-2016',
+  annotations: [
+    {
+      font: {
+        size: 14
+      },
+      showarrow: false,
+      text: 'GHG',
+      x: 0.17,
+      y: 0.5
+    },
+    {
+      font: {
+        size: 14
+      },
+      showarrow: false,
+      text: 'CO2',
+      x: 0.82,
+      y: 0.5
     }
-  }
-}
-
-// Find the element in data0 that joins the lowest following element in data1.
-function findFollowing(i, data0, data1, key) {
-  var n = data1.length, m = data0.length;
-  while (++i < n) {
-    var k = key(data1[i]);
-    for (var j = 0; j < m; ++j) {
-      if (key(data0[j]) === k) return data0[j];
-    }
-  }
-}
-
-function arcTween(d) {
-  var i = d3.interpolate(this._current, d);
-  this._current = i(0);
-  return function(t) { return arc(i(t)); };
-}
-
-</script></form></div>
+  ],
+  height: 400,
+  width: 480
+};
+	  
+  Plotly.newPlot('women', data, layout);</script>	
 
 <!-- Second Parallax Image with Portfolio Text -->
 <div class="bgimg-2 w3-display-container w3-opacity-min">
