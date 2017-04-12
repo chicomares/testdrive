@@ -33,7 +33,7 @@ body, html {
 
 /* Second image (Portfolio) */
 .bgimg-2 {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/9f/Beatles_ad_1965_just_the_beatles_crop.jpg");
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/3f/Swami_opening.jpg");
     min-height: 400px;
 }
 
@@ -232,9 +232,9 @@ body, html {
     var chart = makeLineChart(data, 'year', {
         'Above 0.8': {column: 'euphoric'},
         'Between 0.6 and 0.8': {column: 'happy'},
-		'Between 0.4 and 0.6': {column: 'midrange'},
+	'Between 0.4 and 0.6': {column: 'midrange'},
         'Between 0.2 and 0.4': {column: 'sad'},
-		'Below 0.2': {column: 'depressive'},
+	'Below 0.2': {column: 'depressive'},
     }, {xAxis: 'Years', yAxis: 'Amount'});
     chart.bind("#valencechart2");
     chart.render();
