@@ -164,7 +164,7 @@ body, html {
   <p class="w3-wide w3-center">Since 1941</p>
 <div class="w3-center" id="women1"></div>
 	<script>
-
+var chart = [
 var width = 960,
     height = 500,
     radius = Math.min(width, height) / 2;
@@ -206,9 +206,11 @@ d3.csv("women1.csv", type, function(error, data) {
 
 function type(d) {
   d.number = +d.number;
-  d.bind("#women1");
-  d.render();  
+  return d;  
 }
+]
+  chart.bind("#women1");
+  chart.render();
 
 
 </script>
