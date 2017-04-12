@@ -9,7 +9,6 @@
 <link rel="stylesheet" type="text/css" href="multiline.css">
 <script src="jquery-3.1.1.min.js" charset="utf-8"></script>	
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-<script src="pie-chart.js" charset="utf-8"></script>	
 <script src="multiline.js" charset="utf-8"></script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
@@ -153,7 +152,7 @@ body, html {
 <p>One particular thing that caught my attention is the evolution of women in music. Before 1975, very few songs in these datasets were sung by woman – 15%. Since 1975, this number raised to 39%. Although this is just a sample of the entire data, it still shows how music tells the story of our society. </p> 
  </div>
   <p class="w3-large w3-center w3-padding-16">Women on the charts:</p>
-  <p class="w3-wide"><i class="fa fa-camera"></i>Since 1941</p>
+  <p class="w3-wide">Since 1941</p>
   <script>
 
 var width = 960,
@@ -169,7 +168,7 @@ var arc = d3.svg.arc()
 
 var pie = d3.layout.pie()
     .sort(null)
-    .value(function(d) { return d.population; });
+    .value(function(d) { return d.number; });
 
 var svg = d3.select("body").append("svg")
     .attr("width", width)
@@ -177,7 +176,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-d3.csv("data.csv", type, function(error, data) {
+d3.csv("women1.csv", type, function(error, data) {
   if (error) throw error;
 
   var g = svg.selectAll(".arc")
@@ -187,50 +186,120 @@ d3.csv("data.csv", type, function(error, data) {
 
   g.append("path")
       .attr("d", arc)
-      .style("fill", function(d) { return color(d.data.age); });
+      .style("fill", function(d) { return color(d.data.type); });
 
   g.append("text")
       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
       .attr("dy", ".35em")
-      .text(function(d) { return d.data.age; });
+      .text(function(d) { return d.data.type; });
 });
 
 function type(d) {
-  d.population = +d.population;
+  d.number = +d.number;
   return d;
 }
 
 </script>
   </div>
-  <p class="w3-wide"><i class="fa fa-laptop"></i>Web Design</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">85%</div>
-  </div>
-  <p class="w3-wide"><i class="fa fa-photo"></i>Photoshop</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
-  </div>
-</div>
+  <p class="w3-wide">Before 1975</p>
+  <script>
 
-<div class="w3-row w3-center w3-dark-grey w3-padding-16">
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">14+</span><br>
-    Partners
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">55+</span><br>
-    Projects Done
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">89+</span><br>
-    Happy Clients
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">150+</span><br>
-    Meetings
-  </div>
-</div>
+var width = 960,
+    height = 500,
+    radius = Math.min(width, height) / 2;
 
+var color = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+var arc = d3.svg.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(radius - 70);
+
+var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.number; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+d3.csv("women2.csv", type, function(error, data) {
+  if (error) throw error;
+
+  var g = svg.selectAll(".arc")
+      .data(pie(data))
+    .enter().append("g")
+      .attr("class", "arc");
+
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return color(d.data.type); });
+
+  g.append("text")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .text(function(d) { return d.data.type; });
+});
+
+function type(d) {
+  d.number = +d.number;
+  return d;
+}
+
+</script>
+  </div>
+<p class="w3-wide">After 1975</p>
+  <script>
+
+var width = 960,
+    height = 500,
+    radius = Math.min(width, height) / 2;
+
+var color = d3.scale.ordinal()
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+
+var arc = d3.svg.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(radius - 70);
+
+var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.number; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+d3.csv("women3.csv", type, function(error, data) {
+  if (error) throw error;
+
+  var g = svg.selectAll(".arc")
+      .data(pie(data))
+    .enter().append("g")
+      .attr("class", "arc");
+
+  g.append("path")
+      .attr("d", arc)
+      .style("fill", function(d) { return color(d.data.type); });
+
+  g.append("text")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .text(function(d) { return d.data.type; });
+});
+
+function type(d) {
+  d.number = +d.number;
+  return d;
+}
+
+</script>
+  </div>
+	
 <!-- Second Parallax Image with Portfolio Text -->
 <div class="bgimg-2 w3-display-container w3-opacity-min">
   <div class="w3-display-middle" style="white-space:nowrap;">
