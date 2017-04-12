@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>70 years of pop</title>
+<title>3 Generations of pop</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -33,7 +33,7 @@ body, html {
 
 /* Second image (Portfolio) */
 .bgimg-2 {
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/f/f8/Kendrick_Lamar_3_F.I.B._2016.jpg");
+    background-image: url("/w3images/parallax2.jpg");
     min-height: 400px;
 }
 
@@ -62,7 +62,7 @@ body, html {
       <i class="fa fa-bars"></i>
     </a>
     <a href="#home" class="w3-bar-item w3-button">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> VALENCE</a>
+    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> PROJECT</a>
     <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
     <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
@@ -72,7 +72,7 @@ body, html {
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">VALENCE</a>
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">PROJECT</a>
     <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
     <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
     <a href="#" class="w3-bar-item w3-button">SEARCH</a>
@@ -82,68 +82,74 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF PROP</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF POOP</span>
   </div>
 </div>
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center">VALENCE</h3>
-  <p class="w3-center"><em>Valence is the metric used by Spotify to assess whether the mood of a song is positive or negative. The closer it is to 1, the more positive it is.</em></p>
+  <h3 class="w3-center">PROJECT</h3>
+  <p class="w3-center"><em>An attempt to tell the history of our times through music and data</em></p>
   <div class="chart-wrapper" id="chart-line1"></div>
   <script type="text/javascript">
-    d3.csv('valenceyear.csv', function(error, data) {
+    d3.csv('zeitgeist.csv', function(error, data) {
     data.forEach(function (d) {
         d.year = +d.year;
-        d.valenceaverage = +d.valenceaverage;
-        d.minorkeys = +d.minorkeys;        
+        d.danceability = +d.danceability;
+        d.energy = +d.energy;
+		d.valence = +d.valence;         
     });
 
     var chart = makeLineChart(data, 'year', {
-        'Average valence of the songs': {column: 'valenceaverage'},
-        'Percentage of songs in minor keys': {column: 'minorkeys'},
+        'Average danceability': {column: 'danceability'},
+        'Average energy': {column: 'energy'},
+		'Average valence': {column: 'valence'},
     }, {xAxis: 'Years', yAxis: 'Amount'});
     chart.bind("#chart-line1");
     chart.render();
 
 });
   </script>
-  <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
-
-<p>Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words.</p>
-
-<p>If several languages coalesce, the grammar of the resulting language is more simple and regular than that of the individual languages. The new common language will be more simple and regular than the existing European languages. It will be as simple as Occidental; in fact, it will be Occidental.</p>
-
-<p>To an English person, it will seem like simplified English, as a skeptical Cambridge friend of mine told me what Occidental is. The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>
+  <p>Music is arguably the strongest mark of an era. Think of the 1980s, what was the first thing that came to mind? To most of us, is the reverb of the snare, the artificial pitch of the synth, maybe When Doves Cry guitar solo – the music, always the music. </p>
+  <p>Because of that, to analyse what people were listening to over the decades is a way to tell the history society itself. One of the ways to do so is by analysing how it evolved one year after another using data. That’s where Spotify comes in. </p>
+  <p>The company holds metrics for all the songs it hosts. These metrics include numerical values to assess how danceable, how energetic and how positive they are; their duration and tempo; their key and mode; and, also, whether they’re instrumental, acoustic, or live. These metrics are available for anyone to use at Spotify’s API. </p>
+  <p>For this project, I selected over 6,600 songs that made the Billboard Top 100 chart from 1941 to 2016, and, based on Spotify’s metric, I tried to measure how their qualities changed over these 76 years. </p>
 
   <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
-      <p><b><i class="fa fa-user w3-margin-right"></i>The 10 most positive tunes on Spotify</b></p><br>
-      <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A4BCR5Of4sgKaOcvCFsRLT6" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+      <p><b><i class="fa fa-user w3-margin-right"></i>The Zeitgeist Playlist</b></p><br>
+      <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A73hRb5b1aBauui3gGtYiFe" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
     </div>
-    <!-- Hide this text on small devices PLEASE DONT HIDE KEEP IT THERE/////changed-->
+
+    <!-- Hide this text on small devices NO NO NO MARK IMPORTANT MARK REMEMBER THE MARK -->
     <div class="w3-col m6 w3-padding-large">
-      <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
-
-<p>Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words.</p>
+      <h4>The Zeitgeist Playlist</h4>
+	<p>One of the ideas was to see the average score for each year in three of the main metrics (danceability, energy and valence) and find which song would be more similar to that ideal type – which I called the zeitgeist songs. </p>
+	<p>To get to that result, I subtracted the metrics of each song to the average metrics for the corresponding year. Then, I summed the three scores to reach a zeitgeist index – of course, I did multiply the negative scores by -1, so that one result would not nullify the other. </p>
+	<p>Some of the results were surprisingly meaningful for an automated playlist. For example: the most shocking change in mood comes from 1966 to 1967 – possibly, the most revolutionary year in music history. Dandy, from the harmless, almost childish Herman’s Hermits is followed by Somebody To Love, Jefferson Airplane’s strange, aggressive, drug fuelled, fast paced rock anthem. </p>
     </div>
-  </div>
-  <div class="w3-content w3-container w3-padding-64">
-  <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
-
-<p>Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words.</p>
- <div class="w3-row">
+	<!-- BACK TO THE BEGINNING -->
+	<h4>Metrics</h4>
+<p>But, an important question: what are these metrics, anyway? And how does Spotify get these numbers? </p>
+<p>There are eleven metrics provided by Spotify, but I selected three as the most significant for this exercise: danceability, which is a good way to assess the quality of the rhythm of a track, energy, which measures pace, loudness and noisiness, and valence, which is the overall mood of the song. A more complete explanation of the metrics can be found here. </p>
+<p>Spotify gets these numbers using signal processing techniques. In 2014, they acquired Echo Nest, a company that specialized in these sort of services, to improve playlists and recommendations on their own services. </p>
+<div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
-      <p><b><i class="fa fa-user w3-margin-right"></i>The 10 most negative tunes on Spotify</b></p><br>
-      <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A4BCR5Of4sgKaOcvCFsRLT6" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+      <p><b><i class="fa fa-user w3-margin-right"></i>The Zeitgeist Playlist</b></p><br>
+      <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A0mj2zFE6cuNV3KsN2qHaNi" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
     </div>
-<div class="w3-col m6 w3-padding-large">
-      <p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ in their grammar, their pronunciation and their most common words.</p>
 
-<p>Everyone realizes why a new common language would be desirable: one could refuse to pay expensive translators. To achieve this, it would be necessary to have uniform grammar, pronunciation and more common words.</p>
-    </div>
-  </div>	
-	<p class="w3-large w3-center w3-padding-16">Im really good at:</p>
+    <!-- Hide this text on small devices NO NO NO MARK IMPORTANT MARK REMEMBER THE MARK -->
+    <div class="w3-col m6 w3-padding-large">
+      <h4>The Greatest Hits</h4>
+<p>Another way to experiment the way music evolved is by going through the greatest hits of each year. This playlist has all the number 1 hits since 1941 – except for 1978’s Shadow Dance, by Andy Gibbs, not available on Spotify, and Candle In The Wind 1997, by Elton John – only the 1974 version is available at the service. </p>
+<p>I replaced both songs with their respective runner-ups: Fever Nights, by Bee Gees, and Foolish Games, by Jewel. </p>
+  </div>
+  <h4>Genre issues</h4>
+<p>Working with these two smaller datasets, it was possible to make some qualitative analysis beyond the raw data from Spotify. </p>
+<p>One particular thing that caught my attention is the evolution of women in music. Before 1975, very few songs in these datasets were sung by woman – 15%. Since 1975, this number raised to 39%. Although this is just a sample of the entire data, it still shows how music tells the story of our society. </p> 
+
+  <p class="w3-large w3-center w3-padding-16">Im really good at:</p>
   <p class="w3-wide"><i class="fa fa-camera"></i>Photography</p>
   <div class="w3-light-grey">
     <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
