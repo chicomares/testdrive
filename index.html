@@ -413,8 +413,8 @@ $(document).ready(function(){
 <div class="w3-content w3-container w3-padding-64" id="topartists">
   <h3 class="w3-center">TOP ARTISTS</h3>
   <p class="w3-center"><em>The greatest (and the not so great) hitmakers of history in one chart.</em></p>
-	<div id="hitmakers">
-	<script>
+	<div class="chart-wrapper" id="hitmakers">
+	<script type="text/javascript">
   d3.json("hitmakers.json", function(err, api) {
 	
       var w = 960;
