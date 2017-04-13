@@ -84,7 +84,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF POT</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF TOP</span>
   </div>
 </div>
 
@@ -417,7 +417,11 @@ $(document).ready(function(){
 
       var w = 960;
       var h = 500;
-
+      var chart1 = d3.select("#hitmakers")
+.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+.append("g")
       
       //counting functions under each API section
       //this is not quite comprehensive because I arbitrarily removed some
@@ -478,9 +482,7 @@ $(document).ready(function(){
         }
 	
       })
-	chart.bind("#hitmakers");
-    	chart.render();
-    });
+});
 
 </script></div>
 </div>
