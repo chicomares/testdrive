@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="multiline.css">
 <link rel="stylesheet" type="text/css" href="style.css">	
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script src="bootstrap.js" charset="utf-8"></script>	
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script src="multiline.js" charset="utf-8"></script>
@@ -84,7 +85,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF vai</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF sdsd</span>
   </div>
 </div>
 
@@ -417,11 +418,11 @@ $(document).ready(function(){
 	
       var w = 960;
       var h = 500;
-      var svgContainer = d3.select("#hitmakers").append("svg")
-		.attr("width", width+margin.left + margin.right)
-		.attr("height",height+margin.top + margin.bottom)
-		.append("g").attr("class", "container")
-		.attr("transform", "translate("+ margin.left +","+ margin.top +")");
+      var chart1 = d3.select("#chart1")
+.append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+.append("g")
       
       //counting fuvar chart1 = d3.select("#hitmakers")nctions under each API section
       //this is not quite comprehensive because I arbitrarily removed some
