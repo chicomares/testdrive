@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="style.css">	
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
 <script src="multiline.js" charset="utf-8"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
@@ -64,6 +65,7 @@ body, html {
     <a href="#project" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> THE PROJECT</a>
     <a href="#valence" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> VALENCE</a>
     <a href="#energy" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> ENERGY & DANCE</a>
+    <a href="#topartists" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> TOP ARTISTS</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
       <i class="fa fa-search"></i>
     </a>
@@ -74,6 +76,7 @@ body, html {
     <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">THE PROJECT</a>
     <a href="#valence" class="w3-bar-item w3-button" onclick="toggleFunction()">VALENCE</a>
     <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">ENERGY & DANCE</a>
+	<a href="#topartists" class="w3-bar-item w3-button" onclick="toggleFunction()">TOP ARTISTS</a>
     <a href="#" class="w3-bar-item w3-button">SEARCH</a>
   </div>
 </div>
@@ -81,7 +84,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF POOP</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF POP</span>
   </div>
 </div>
 
@@ -394,6 +397,89 @@ $(document).ready(function(){
     chart.render();
 });
   </script></div>	
+</div>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide">ENERGY & DANCE</span>
+  </div>
+</div>
+
+<!-- TOP ARTISTS SECTION -->
+
+<div class="w3-content w3-container w3-padding-64" id="topartists">
+  <h3 class="w3-center">TOP ARTISTS</h3>
+  <p class="w3-center"><em>The greatest (and the not so great) hitmakers of history in one chart.</em></p>
+  <div id="hitmakers"><svg></svg>
+  <script>
+  d3.json("hitmakers.json", function(err, api) {
+
+      var w = 960;
+      var h = 500;
+
+      
+      //counting functions under each API section
+      //this is not quite comprehensive because I arbitrarily removed some
+      //functions that would add clutter, and didn't include sub functions
+      var nested = d3.nest()
+      .key(function(d) { return d.artist})
+      .rollup(function(d) { return d.length })
+      .map(api)
+      
+      var groups = Object.keys(nested);
+      
+      var color = d3.scale.category20c()
+      .domain(groups);
+      
+      var prepArtists = groups.map(function(t) {
+        return {
+          artist: t,
+          children: [{value: nested[t]}]
+        }
+      })
+
+
+      var artistObj = {artist:"API", children:prepArtists};
+
+      var treemap = d3.layout.treemap()
+      .size([w,h])
+      .sort(function(a,b) { return a.value - b.value })
+      .value(function(d) { return d.value })
+      var nodes = treemap.nodes(artistObj)
+
+      var svg = d3.select("svg");
+      var gs = svg.selectAll("g.cell")
+      .data(nodes)
+      .enter()
+      .append("g").classed("cell",true);
+      gs.append("rect")
+      .attr({
+        x: function(d) { return d.x },
+        y: function(d) { return d.y },
+        width: function(d) { return d.dx },
+        height: function(d) { return d.dy}
+      })
+      .style({
+        opacity: function(d) { return !!d.parent },
+        fill: function(d) { if(d.parent) return color(d.parent.artist) }
+      })
+
+      svg.selectAll("text.cell")
+      .data(nodes).enter()
+      .append("text")
+      .text(function(d) { if(d.parent && d.parent.artist != "API") return d.parent.artist })
+      .attr({
+        x: function(d) { return d.x + 10 },
+        y: function(d) { return d.y - 10 },
+        transform: function(d) {
+          return "rotate(90," + [d.x, d.y]+")"
+        }
+      })
+
+    });
+
+</script></div>
 </div>
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
