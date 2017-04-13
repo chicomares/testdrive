@@ -13,6 +13,7 @@
 <script src="multiline.js" charset="utf-8"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
+<script src="script.js"></script>
 <style>
 
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
@@ -269,19 +270,14 @@ var layout = {
 <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
       <p><b><i class="fa fa-user w3-margin-right"></i>The Zeitgeist Playlist</b></p><br>
-      <div class="dropdown">
-  <button class="dropbtn">What kind of playlist would you like?</button>
-  <div class="dropdown-content">
-    <a href="#happyplaylist">The happiest possible!</a>
-    <a href="#averagevplaylist">What the average valence sounds like?</a>
-    <a href="#middlevalenceplaylist">The middle of the pack</a>
-    <a href="#sadplaylist">I wanna drown in tears</a>	  
-  </div>
-	      <div id="happyplaylist"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A0mj2zFE6cuNV3KsN2qHaNi" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
-	      <div id="averagevplaylist"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A73hRb5b1aBauui3gGtYiFe" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
-	      <div id="middlevalenceplaylist"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A73hRb5b1aBauui3gGtYiFe" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
-	      <div id="sadplaylist"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A0mj2zFE6cuNV3KsN2qHaNi" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
-</div>
+      <select id="dropDown">
+    <option>Choose</option>
+    <option value="div1">Show Div 1</option>
+    <option value="div2">Show Div 2</option>
+</select>
+
+<div  id="div1" class="drop-down-show-hide">div 1</div>
+<div  id="div2" class="drop-down-show-hide">div 2</div>
     </div>
 
     <!-- Hide this text on small devices NO NO NO MARK IMPORTANT MARK REMEMBER THE MARK -->
