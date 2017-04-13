@@ -52,7 +52,25 @@ body, html {
         background-attachment: scroll;
     }
 }
-svg { width: 100%; height: 100%}	
+
+.rectangle {
+	fill: steelblue;
+}
+.rectangle:hover {
+	fill: orange;
+}
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}	
+	
+	
 </style>
 <body>
 
@@ -85,7 +103,7 @@ svg { width: 100%; height: 100%}
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF maybe?</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF new?</span>
   </div>
 </div>
 
@@ -411,79 +429,137 @@ $(document).ready(function(){
 
 <div class="w3-content w3-container w3-padding-64" id="topartists">
   <h3 class="w3-center">TOP ARTISTS</h3>
-  <p class="w3-center"><em>The greatest (and the not so great) hitmakers of history in one chart.</em></p>
-	<div class="chart-wrapper" id="hitmakers"><svg></svg>
-	<script type="text/javascript">
-  d3.json("hitmakers.json", function(err, api) {
-	
-      var w = 960;
-      var h = 500; 
+  <p class="w3-center"><em>The greatest hitmakers of history in one chart.</em></p>
+	<div id="drop" align=center>
+	<script>
 
-              
+var margin = {top: 80, right: 180, bottom: 80, left: 180},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var svg = d3.select("body").append("svg")
+	.attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+	.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.csv("hitmakersbar1.csv", function(error, data){
+
+	// gambiarra
+	var data = data.filter(function(d){return d.gambi == '1';});
+	// Get every column value
+	var elements = Object.keys(data[0])
+		.filter(function(d){
+			return ((d != "gambi") & (d != "artist"));
+		});
+	var selection = elements[0];
+
+	var y = d3.scale.linear()
+			.domain([0, d3.max(data, function(d){
+				return +d[selection];
+			})])
+			.range([height, 0]);
+
+	var x = d3.scale.ordinal()
+			.domain(data.map(function(d){ return d.artist;}))
+			.rangeBands([0, width]);
+
+
+	var xAxis = d3.svg.axis()
+		.scale(x)
+	    .orient("bottom");
+
+	var yAxis = d3.svg.axis()
+		.scale(y)
+	    .orient("left");
+
+	svg.append("g")
+    	.attr("class", "x axis")
+    	.attr("transform", "translate(0," + height + ")")
+    	.call(xAxis)
+    	.selectAll("text")
+    	.style("font-size", "8px")
+      	.style("text-anchor", "end")
+      	.attr("dx", "-.8em")
+      	.attr("dy", "-.55em")
+      	.attr("transform", "rotate(-90)" );
+
+
+ 	svg.append("g")
+    	.attr("class", "y axis")
+    	.call(yAxis);
+
+	svg.selectAll("rectangle")
+		.data(data)
+		.enter()
+		.append("rect")
+		.attr("class","rectangle")
+		.attr("width", width/data.length)
+		.attr("height", function(d){
+			return height - y(+d[selection]);
+		})
+		.attr("x", function(d, i){
+			return (width / data.length) * i ;
+		})
+		.attr("y", function(d){
+			return y(+d[selection]);
+		})
+		.append("title")
+		.text(function(d){
+			return d.artist + " : " + d[selection];
+		});
+
+	var selector = d3.select("#drop")
+    	.append("select")
+    	.attr("id","dropdown")
+    	.on("change", function(d){
+        	selection = document.getElementById("dropdown");
+
+        	y.domain([0, d3.max(data, function(d){
+				return +d[selection.value];})]);
+
+        	yAxis.scale(y);
+
+        	d3.selectAll(".rectangle")
+           		.transition()
+	            .attr("height", function(d){
+					return height - y(+d[selection.value]);
+				})
+				.attr("x", function(d, i){
+					return (width / data.length) * i ;
+				})
+				.attr("y", function(d){
+					return y(+d[selection.value]);
+				})
+           		.ease("linear")
+           		.select("title")
+           		.text(function(d){
+           			return d.artist + " : " + d[selection.value];
+           		});
       
-      //counting functions under each API section
-      //this is not quite comprehensive because I arbitrarily removed some
-      //functions that would add clutter, and didn't include sub functions
-      var nested = d3.nest()
-      .key(function(d) { return d.artist})
-      .rollup(function(d) { return d.length })
-      .map(api)
-      
-      var groups = Object.keys(nested);
-      
-      var color = d3.scale.category20c()
-      .domain(groups);
-      
-      var prepArtists = groups.map(function(t) {
-        return {
-          artist: t,
-          children: [{value: nested[t]}]
-        }
+           	d3.selectAll("g.y.axis")
+           		.transition()
+           		.call(yAxis);
+
+         });
+
+    selector.selectAll("option")
+      .data(elements)
+      .enter().append("option")
+      .attr("value", function(d){
+        return d;
+      })
+      .text(function(d){
+        return d;
       })
 
 
-      var artistObj = {artist:"API", children:prepArtists};
-
-      var treemap = d3.layout.treemap()
-      .size([w,h])
-      .sort(function(a,b) { return a.value - b.value })
-      .value(function(d) { return d.value })
-      var nodes = treemap.nodes(artistObj)
-
-      var svg = d3.select("hitmakers");
-      var gs = svg.selectAll("g.cell")
-      .data(nodes)
-      .enter()
-      .append("g").classed("cell",true);
-      gs.append("rect")
-      .attr({
-        x: function(d) { return d.x },
-        y: function(d) { return d.y },
-        width: function(d) { return d.dx },
-        height: function(d) { return d.dy}
-      })
-      .style({
-        opacity: function(d) { return !!d.parent },
-        fill: function(d) { if(d.parent) return color(d.parent.artist) }
-      })
-
-      svg.selectAll("text.cell")
-      .data(nodes).enter()
-      .append("text")
-      .text(function(d) { if(d.parent && d.parent.artist != "API") return d.parent.artist })
-      .attr({
-        x: function(d) { return d.x + 10 },
-        y: function(d) { return d.y - 10 },
-        transform: function(d) {
-          return "rotate(90," + [d.x, d.y]+")"
-		
-        }
-	
-      })
 });
 
-</script></div>
-</div>
+</script>	
+	</div>	
+	
+	
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
   <h3 class="w3-center">MY WORK</h3>
