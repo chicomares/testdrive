@@ -84,7 +84,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF DS</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF dfdf</span>
   </div>
 </div>
 
@@ -411,13 +411,17 @@ $(document).ready(function(){
 <div class="w3-content w3-container w3-padding-64" id="topartists">
   <h3 class="w3-center">TOP ARTISTS</h3>
   <p class="w3-center"><em>The greatest (and the not so great) hitmakers of history in one chart.</em></p>
-  <div id="hitmakers">
+  <div id="hitmakers"><svg></svg>
   <script>
   d3.json("hitmakers.json", function(err, api) {
 	
       var w = 960;
       var h = 500;
       var chart1 = d3.select("#hitmakers")
+      .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+.append("g")
       
       //counting fuvar chart1 = d3.select("#hitmakers")nctions under each API section
       //this is not quite comprehensive because I arbitrarily removed some
