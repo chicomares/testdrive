@@ -411,19 +411,15 @@ $(document).ready(function(){
 <div class="w3-content w3-container w3-padding-64" id="topartists">
   <h3 class="w3-center">TOP ARTISTS</h3>
   <p class="w3-center"><em>The greatest (and the not so great) hitmakers of history in one chart.</em></p>
-  <div id="hitmakers"><svg></svg>
+  <div id="hitmakers">
   <script>
   d3.json("hitmakers.json", function(err, api) {
-
+	
       var w = 960;
       var h = 500;
       var chart1 = d3.select("#hitmakers")
-.append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-.append("g")
       
-      //counting functions under each API section
+      //counting fuvar chart1 = d3.select("#hitmakers")nctions under each API section
       //this is not quite comprehensive because I arbitrarily removed some
       //functions that would add clutter, and didn't include sub functions
       var nested = d3.nest()
