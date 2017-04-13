@@ -15,14 +15,12 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
 <script src="script.js"></script>
 <style>
-
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
 body, html {
     height: 100%;
     color: #777;
     line-height: 1.8;
 }
-
 /* Create a Parallax Effect */
 .bgimg-1, .bgimg-2, .bgimg-3 {
     background-attachment: fixed;
@@ -30,28 +28,23 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
 /* First image (home) */
 .bgimg-1 {
     background-image: url('http://s3.amazonaws.com/production.mediajoint.prx.org/public/series_images/15048/frank-siniatra_medium.jpg');
     min-height: 100%;
 }
-
 /* Second image (valence) */
 .bgimg-2 {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/ee/Kanye_West_Barclays_Center.png');
     min-height: 400px;
 }
-
 /* Third image (Contact) */
 .bgimg-3 {
-    background-image: url("/w3images/parallax3.jpg");
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/d/d4/Michael_jackson_1992.jpg");
     min-height: 400px;
 }
-
 .w3-wide {letter-spacing: 10px;}
 .w3-hover-opacity {cursor: pointer;}
-
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-device-width: 1024px) {
     .bgimg-1, .bgimg-2, .bgimg-3 {
@@ -70,7 +63,7 @@ body, html {
     <a href="#home" class="w3-bar-item w3-button">HOME</a>
     <a href="#project" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> THE PROJECT</a>
     <a href="#valence" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> VALENCE</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="#energy" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> ENERGY & DANCE</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
       <i class="fa fa-search"></i>
     </a>
@@ -88,7 +81,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF playlist</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF POP</span>
   </div>
 </div>
 
@@ -107,7 +100,6 @@ body, html {
         d.energy = +d.energy;
 	d.valence = +d.valence;    
     });
-
     var chart = makeLineChart(data, 'year', {
         'Average danceability': {column: 'danceability'},
         'Average energy': {column: 'energy'},
@@ -178,7 +170,6 @@ body, html {
   hole: .4,
   type: 'pie'
 }];
-
 var layout = {
   title: 'Women & Charts - 1941-2016',
   annotations: [
@@ -226,14 +217,12 @@ var layout = {
         d.valenceaverage = +d.valenceaverage;
         d.minorkeys = +d.minorkeys;        
     });
-
     var chart = makeLineChart(data, 'year', {
         'Average valence of the songs': {column: 'valenceaverage'},
         'Percentage of songs in minor keys': {column: 'minorkeys'},
     }, {xAxis: 'Years', yAxis: 'Amount'});
     chart.bind("#valencechart1");
     chart.render();
-
 });
   </script></div>
   
@@ -251,7 +240,6 @@ var layout = {
 		d.sad = +d.sad;
 		d.depressive = +d.depressive;        
     });
-
     var chart = makeLineChart(data, 'year', {
         'Above 0.8': {column: 'euphoric'},
         'Between 0.6 and 0.8': {column: 'happy'},
@@ -261,7 +249,6 @@ var layout = {
     }, {xAxis: 'Decade', yAxis: '% of songs'});
     chart.bind("#valencechart2");
     chart.render();
-
 });
   </script></div>
   
@@ -313,6 +300,95 @@ $(document).ready(function(){
 <p>On the other hand, seven Celine Dion singles from the 90s appear in this data set, and six of them had valence ratings lower than 0.3 – including, of course, My Heart Will Go On. </p>
 </div>
 
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+  </div>
+</div>
+
+<!-- ENERGY & DANCE SECTION -->
+
+<div class="w3-content w3-container w3-padding-64" id="energy">
+  <h3 class="w3-center">ENERGY & DANCE</h3>
+  <p class="w3-center"><em>In 76 years, music has become more danceable and more energetic.</em></p>
+  <div class="chart-wrapper" id="energychart"><script type="text/javascript">
+    d3.csv('energy.csv', function(error, data) {
+    data.forEach(function (d) {
+        d.year = +d.year;
+        d.energy = +d.energy;
+        d.loudness = +d.loudness;        
+    });
+    var chart = makeLineChart(data, 'year', {
+        'Average energy of the songs': {column: 'energy'},
+        'Average loudness (adjusted to scale)': {column: 'loudness'},
+    }, {xAxis: 'Years', yAxis: 'Average'});
+    chart.bind("#energy");
+    chart.render();
+});
+  </script></div>
+  
+ <p>If there is one single musical feature that changed entirely from the 1940s to the 2000s is the energy. Try talking to your grandparents about music. They’ll probably think the music you listen to – whichever it is – is too loud, too aggressive, too noisy. And you’ll probably fall asleep after no more than 5 minutes listening to what your grandpa used to party to back in the day. </p>
+<p>This is reflected on Spotify. The average score for energy of the greatest hits of the 1940s is below 0.3, whereas, since the mid-1970s, this score has been consistently above 0.6. Part of this evolution can be attributed to studio techniques, which allowed us to record and master louder sounds with much higher definition. </p>
+
+<div class="w3-col m6 w3-center w3-padding-large">
+	<script type="text/javascript">
+$(document).ready(function(){
+    $("select").change(function(){
+        $(this).find("option:selected").each(function(){
+            var optionValue = $(this).attr("value");
+            if(optionValue){
+                $(".box").not("." + optionValue).hide();
+                $("." + optionValue).show();
+            } else{
+                $(".box").hide();
+            }
+        });
+    }).change();
+});
+</script>
+
+      <p><b>Mood generated playlists</b></p><br>
+      <div>
+        <select>
+            <option>What kind of music do you want to hear?</option>
+            <option value="happy">Something that makes me happy!</option>
+            <option value="average">What is the average song like?</option>
+            <option value="middle">The exact middle point between light and darkness</option>
+	    <option value="sad">The most negative ones in this dataset</option>	
+        </select>
+	    </div>
+	    <div class="happy box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A4BCR5Of4sgKaOcvCFsRLT6" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
+            <div class="average box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A63AgtDSxDwv7sLx7pnrGoI" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
+            <div class="middle box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A1N4cm1Fr8wCKoLsOpGyyBw" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
+	    <div class="sad box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A5P8KJdRsgufFbQsKDUb4Cu" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
+	</div>
+
+<div class="w3-col m6 w3-padding-large"><p>While the growth in the average energy of music from the 1940s to the 1970s was pretty much steady, since then it has gone up and down periodically. The late 1980s and the 2000s decade were times of highly energetic music, whereas the average energy score declined by almost 10% during the 1990s. And, right now, our music is getting less energetic: it dropped from 0.75 in 2011 to 0.62 last year. </p>
+<h3>The age of dance</h3>
+<p>Although last year’s biggest hits were relatively not very energetic, they were certainly danceable. The danceability score for the 2016 were one of the highest of the historic series: 0.66. </p>
+</div>
+<p>The average danceability score has increased since the 1940s, but not in a dramatic fashion as energy. It rose steadily from a 0.48 average on the 1940s to a 0.64 average on the 1990s, and it has been around that mark for the last 20 years. </p>	
+<div class="chart-wrapper" id="dancechart"><script type="text/javascript">
+    d3.csv('dance.csv', function(error, data) {
+    data.forEach(function (d) {
+        d.year = +d.year;
+        d.danceability = +d.danceability;
+               
+    });
+    var chart = makeLineChart(data, 'year', {
+        'Average danceability': {column: 'danceabily'}
+        
+    }, {xAxis: 'Years', yAxis: 'Average'});
+    chart.bind("#dancechart");
+    chart.render();
+});
+  </script></div>
+  <h3>Metrics</h3>
+<p>But what do they mean by energy and danceability, since they’re very subjective concepts? Energy has to do with loudness, speed, aggressiveness. Heavy metal, for instance, usually scores very high for this – obviously not on this dataset, Raining Blood, by Slayer, scores almost 1 for energy and almost 0 for valence, a typical heavy metal setup. </p>
+<p>It sometimes means that this metric is distorted by loud background noises – Svefn-g-englar, by Sigur Rós, has a 0.5 energy score, despite being a 10-minute-long lullaby (also, obviously not on this dataset). </p>
+<p>Danceability is measured based on the track’s “tempo, rhythm stability, beat strength, and overall regularity”. </p>
+</div>
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
   <h3 class="w3-center">MY WORK</h3>
@@ -366,12 +442,7 @@ $(document).ready(function(){
   </div>
 </div>
 
-<!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
-  </div>
-</div>
+
 
 <!-- Container (Contact Section) -->
 <div class="w3-content w3-container w3-padding-64" id="contact">
@@ -433,13 +504,11 @@ function myMap()
     mapTypeId:google.maps.MapTypeId.ROADMAP
   };
   var map=new google.maps.Map(document.getElementById("googleMap"),mapOptions);
-
   var marker = new google.maps.Marker({
     position: myCenter,
   });
   marker.setMap(map);
 }
-
 // Modal Image Gallery
 function onClick(element) {
   document.getElementById("img01").src = element.src;
@@ -447,7 +516,6 @@ function onClick(element) {
   var captionText = document.getElementById("caption");
   captionText.innerHTML = element.alt;
 }
-
 // Change style of navbar on scroll
 window.onscroll = function() {myFunction()};
 function myFunction() {
@@ -458,7 +526,6 @@ function myFunction() {
         navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
     }
 }
-
 // Used to toggle the menu on small screens when clicking on the menu button
 function toggleFunction() {
     var x = document.getElementById("navDemo");
