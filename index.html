@@ -81,7 +81,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF BLOB</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF POP</span>
   </div>
 </div>
 
@@ -144,7 +144,7 @@ body, html {
       <h3>The Greatest Hits</h3>
 <p>Another way to experiment the way music evolved is by going through the greatest hits of each year. This playlist has all the number 1 hits since 1941 – except for 1978’s Shadow Dance, by Andy Gibbs, not available on Spotify, and Candle In The Wind 1997, by Elton John – only the 1974 version is available at the service. </p>
 <p>I replaced both songs with their respective runner-ups: Fever Nights, by Bee Gees, and Foolish Games, by Jewel. </p>
-   <h3>Genre issues</h3>
+   <h3>Gender issues</h3>
 <p>Working with these two smaller datasets, it was possible to make some qualitative analysis beyond the raw data from Spotify. </p>
 <p>One particular thing that caught my attention is the evolution of women in music. Before 1975, very few songs in these datasets were sung by woman – 15%. Since 1975, this number raised to 39%. Although this is just a sample of the entire data, it still shows how music tells the story of our society. </p> 
 	</div></div>
@@ -272,7 +272,7 @@ $(document).ready(function(){
 });
 </script>
 
-      <p><b>Mood generated playlists</b></p><br>
+      <p><b>Metric generated playlists</b></p><br>
       <div>
         <select>
             <option>What kind of music do you want to hear?</option>
@@ -348,20 +348,25 @@ $(document).ready(function(){
 });
 </script>
 
-      <p><b>Mood generated playlists</b></p><br>
+      <p><b>Metric generated playlists</b></p><br>
       <div>
         <select>
             <option>What kind of music do you want to hear?</option>
-            <option value="happy">Something that makes me happy!</option>
-            <option value="average">What is the average song like?</option>
-            <option value="middle">The exact middle point between light and darkness</option>
-	    <option value="sad">The most negative ones in this dataset</option>	
+            <option value="energetic">Something very energetic</option>
+            <option value="danceable">The best for dancing</option>
+            <option value="energydance">Great energy and great danceability</option>
+	    <option value="lowenergy">I need some sleep, low energy please</option>
+	    <option value="lowdance">I'm the reverent from Footloose, stop the dancing</option>	
+	    <option value="lowlowlow">No energy, no danceability</option>	 	
         </select>
 	    </div>
-	    <div class="happy box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A4BCR5Of4sgKaOcvCFsRLT6" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
-            <div class="average box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A63AgtDSxDwv7sLx7pnrGoI" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
-            <div class="middle box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A1N4cm1Fr8wCKoLsOpGyyBw" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
-	    <div class="sad box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A5P8KJdRsgufFbQsKDUb4Cu" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
+	    <div class="energetic box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A5iNH4J376ALzx9gkcpxScF" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
+	    <div class="danceable box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A4tZk14LGb2a1EfjCBVGYKe" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
+	    <div class="energydance box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A2WhNeXPtVCUZsityThoOrh" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div> 
+	    <div class="lowenergy box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A0yZjSJoKOePwSilJ8qkufe" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
+	    <div class="lowdance box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A0JDWspQYHErWNUyJSfgVKH" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
+	    <div class="lowlowlow box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A77x9VYtkVzNBqaYVIUegEr" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div> 
+	
 	</div>
 
 <div class="w3-col m6 w3-padding-large"><p>While the growth in the average energy of music from the 1940s to the 1970s was pretty much steady, since then it has gone up and down periodically. The late 1980s and the 2000s decade were times of highly energetic music, whereas the average energy score declined by almost 10% during the 1990s. And, right now, our music is getting less energetic: it dropped from 0.75 in 2011 to 0.62 last year. </p>
