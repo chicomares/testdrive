@@ -73,7 +73,7 @@ body, html {
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
     <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">THE PROJECT</a>
     <a href="#valence" class="w3-bar-item w3-button" onclick="toggleFunction()">VALENCE</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">ENERGY & DANCE</a>
     <a href="#" class="w3-bar-item w3-button">SEARCH</a>
   </div>
 </div>
@@ -81,7 +81,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF POP</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF POOP</span>
   </div>
 </div>
 
@@ -356,7 +356,7 @@ $(document).ready(function(){
             <option value="danceable">The best for dancing</option>
             <option value="energydance">Great energy and great danceability</option>
 	    <option value="lowenergy">I need some sleep, low energy please</option>
-	    <option value="lowdance">I'm the reverent from Footloose, stop the dancing</option>	
+	    <option value="lowdance">I'm the reverend from Footloose, stop the dancing</option>	
 	    <option value="lowlowlow">No energy, no danceability</option>	 	
         </select>
 	    </div>
@@ -372,8 +372,13 @@ $(document).ready(function(){
 <div class="w3-col m6 w3-padding-large"><p>While the growth in the average energy of music from the 1940s to the 1970s was pretty much steady, since then it has gone up and down periodically. The late 1980s and the 2000s decade were times of highly energetic music, whereas the average energy score declined by almost 10% during the 1990s. And, right now, our music is getting less energetic: it dropped from 0.75 in 2011 to 0.62 last year. </p>
 <h3>The age of dance</h3>
 <p>Although last year’s biggest hits were relatively not very energetic, they were certainly danceable. The danceability score for the 2016 were one of the highest of the historic series: 0.66. </p>
-</div>
-<p>The average danceability score has increased since the 1940s, but not in a dramatic fashion as energy. It rose steadily from a 0.48 average on the 1940s to a 0.64 average on the 1990s, and it has been around that mark for the last 20 years. </p>	
+<p>The average danceability score has increased since the 1940s, but not in a dramatic fashion as energy. It rose steadily from a 0.48 average on the 1940s to a 0.64 average on the 1990s, and it has been around that mark for the last 20 years. </p>
+	</div>
+	
+  <h3>Metrics</h3>
+<p>But what do they mean by energy and danceability, since they’re very subjective concepts? Energy has to do with loudness, speed, aggressiveness. Heavy metal, for instance, usually scores very high for this – obviously not on this dataset, Raining Blood, by Slayer, scores almost 1 for energy and almost 0 for valence, a typical heavy metal setup. </p>
+<p>It sometimes means that this metric is distorted by loud background noises – Svefn-g-englar, by Sigur Rós, has a 0.5 energy score, despite being a 10-minute-long lullaby (also, obviously not on this dataset). </p>
+<p>Danceability is measured based on the track’s “tempo, rhythm stability, beat strength, and overall regularity”. </p>
 <div class="chart-wrapper" id="dancechart"><script type="text/javascript">
     d3.csv('dance.csv', function(error, data) {
     data.forEach(function (d) {
@@ -388,11 +393,7 @@ $(document).ready(function(){
     chart.bind("#dancechart");
     chart.render();
 });
-  </script></div>
-  <h3>Metrics</h3>
-<p>But what do they mean by energy and danceability, since they’re very subjective concepts? Energy has to do with loudness, speed, aggressiveness. Heavy metal, for instance, usually scores very high for this – obviously not on this dataset, Raining Blood, by Slayer, scores almost 1 for energy and almost 0 for valence, a typical heavy metal setup. </p>
-<p>It sometimes means that this metric is distorted by loud background noises – Svefn-g-englar, by Sigur Rós, has a 0.5 energy score, despite being a 10-minute-long lullaby (also, obviously not on this dataset). </p>
-<p>Danceability is measured based on the track’s “tempo, rhythm stability, beat strength, and overall regularity”. </p>
+  </script></div>	
 </div>
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
