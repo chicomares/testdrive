@@ -88,7 +88,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF div</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF playlist</span>
   </div>
 </div>
 
@@ -285,18 +285,22 @@ $(document).ready(function(){
 });
 </script>
 
-      <p><b><i class="fa fa-user w3-margin-right"></i>The Zeitgeist Playlist</b></p><br>
+      <p><b>Mood generated playlists</b></p><br>
       <div>
         <select>
-            <option>Choose Color</option>
-            <option value="red">Red</option>
-            <option value="green">Green</option>
-            <option value="blue">Blue</option>
+            <option>What kind of music do you want to hear?</option>
+            <option value="happy">Something that makes me happy!</option>
+            <option value="average">What is the average song like?</option>
+            <option value="middle">The exact middle point between light and darkness</option>
+	    <option value="sad">The most negative ones in this dataset</option>	
         </select>
-	    </div></div>
-    <div class="red box">You have selected <strong>red option</strong> so i am here</div>
-    <div class="green box">You have selected <strong>green option</strong> so i am here</div>
-    <div class="blue box">You have selected <strong>blue option</strong> so i am here</div>
+	    </div>
+	    <div class="happy box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A4BCR5Of4sgKaOcvCFsRLT6" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
+            <div class="average box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A63AgtDSxDwv7sLx7pnrGoI" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
+            <div class="middle box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A1N4cm1Fr8wCKoLsOpGyyBw" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
+	    <div class="sad box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A5P8KJdRsgufFbQsKDUb4Cu" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
+	</div>
+    
     <!-- Hide this text on small devices NO NO NO MARK IMPORTANT MARK REMEMBER THE MARK -->
     <div class="w3-col m6 w3-padding-large">
     <p>Usually, minor scales tend to be associated with melancholy, while major scales are usually more upbeat. That does not necessarily mean that every minor melody is depressing, or the other way around. Donna Summer’s She Work Hard for the Money, the most upbeat track in the entire dataset, happens to be in G# minor, and R. Kelly’s I Believe I Can Fly, one of the saddest, is in G major. But it usually makes sense. </p>
