@@ -103,7 +103,7 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF gaimb?</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF tsv?</span>
   </div>
 </div>
 
@@ -443,7 +443,7 @@ var svg = d3.select("body").append("svg")
 	.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("hitmakersbar1.csv", function(error, data){
+d3.tsv("hitmakersbar.tsv", function(error, data){
 
 	// gambiarra
 	var data = data.filter(function(d){return d.gambi == '1';});
