@@ -7,7 +7,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="multiline.css">
-<link rel="stylesheet" type="text/css" href="crazybutton.css">	
 <link rel="stylesheet" type="text/css" href="style.css">	
 <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
@@ -15,7 +14,6 @@
 <script src="multiline.js" charset="utf-8"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/numeric/1.2.6/numeric.min.js"></script>
-<script src="crazybutton.js"></script>	
 <script src="script.js"></script>
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
@@ -54,25 +52,6 @@ body, html {
         background-attachment: scroll;
     }
 }
-
-.rectangle {
-	fill: steelblue;
-}
-.rectangle:hover {
-	fill: orange;
-}
-.axis {
-  font: 10px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}	
-	
-	
 </style>
 <body>
 
@@ -86,7 +65,7 @@ body, html {
     <a href="#project" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> THE PROJECT</a>
     <a href="#valence" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> VALENCE</a>
     <a href="#energy" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> ENERGY & DANCE</a>
-    <a href="#topartists" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> TOP ARTISTS</a>
+	<a href="#topartists" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> TOP ARTISTS</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
       <i class="fa fa-search"></i>
     </a>
@@ -105,14 +84,14 @@ body, html {
 <!-- First Parallax Image with Logo Text -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF posh</span>
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">3 GENERATIONS OF backup</span>
   </div>
 </div>
 
 <!-- Container (About Section) -->
 <div class="w3-content w3-container w3-padding-64" id="project">
   <h3 class="w3-center">THE PROJECT</h3>
-  <p class="w3-center"><em>An attempt to tell the history of popular music through data</em></p>
+  <p class="w3-center"><em>An attempt to tell the history of our times through music and data</em></p>
   <div class="chart-wrapper" id="zeitgeistchart"><script type="text/javascript">
     d3.csv('zeitgeist2.csv', function(error, data) {
     data.forEach(function (d) {
@@ -134,10 +113,10 @@ body, html {
 });
   </script></div>
   
-  <p>Music is arguably the strongest mark of an era. Think of the 1980s, what was the first thing that came to mind? To most of us, is the reverb of the snare, the artificial pitch of the synth, maybe <a target="_blank" href="https://open.spotify.com/track/51H2y6YrNNXcy3dfc3qSbA">When Doves Cry</a> guitar solo – the music, always the music. </p>
-<p>Because of that, to analyse what people were listening to over the decades is a way to tell the history society itself. One of the ways to do so is by analysing how it evolved one year after another using data. That’s where Spotify comes in. </p>
-<p>The company holds metrics for all the songs it hosts. They are numerical values to assess how danceable, how energetic and how positive they are; their duration and tempo; their key and mode; and, also, whether they’re instrumental, acoustic, or live. And, the best part, they are available for anyone to use at <a target="_blank" href="https://developer.spotify.com/web-api/console/post-playlist-tracks/">Spotify’s API</a>. </p>
-<p>For this project, I selected over 6,600 songs that made the <a target="_blank" href="http://billboardtop100of.com/">Billboard Top 100</a> Year End charts from 1941 to 2016, and, based on Spotify’s metric, I tried to measure how their qualities changed over these 76 years. </p>
+  <p>Music is arguably the strongest mark of an era. Think of the 1980s, what was the first thing that came to mind? To most of us, is the reverb of the snare, the artificial pitch of the synth, maybe When Doves Cry guitar solo – the music, always the music. </p>
+  <p>Because of that, to analyse what people were listening to over the decades is a way to tell the history society itself. One of the ways to do so is by analysing how it evolved one year after another using data. That’s where Spotify comes in. </p>
+  <p>The company holds metrics for all the songs it hosts. These metrics include numerical values to assess how danceable, how energetic and how positive they are; their duration and tempo; their key and mode; and, also, whether they’re instrumental, acoustic, or live. These metrics are available for anyone to use at Spotify’s API. </p>
+  <p>For this project, I selected over 6,600 songs that made the Billboard Top 100 chart from 1941 to 2016, and, based on Spotify’s metric, I tried to measure how their qualities changed over these 76 years. </p>
 
   <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
@@ -149,14 +128,14 @@ body, html {
     <div class="w3-col m6 w3-padding-large">
       <h3>The Zeitgeist Playlist</h3>
 	<p>One of the ideas was to see the average score for each year in three of the main metrics (danceability, energy and valence) and find which song would be more similar to that ideal type – which I called the zeitgeist songs. </p>
-<p>To get to that result, I subtracted the metrics of each song to the average metrics for the corresponding year. Then, I summed the three scores to reach a zeitgeist index – of course, I did multiply the negative scores by -1, so that one result would not nullify the other. </p>
-<p>Some of the results were surprisingly meaningful for an automated playlist. For example: the most shocking change in mood comes from 1966 to 1967 – possibly, the most revolutionary year in music history. <a target="blank" href="https://open.spotify.com/track/5GmPGIGLkLdnWpnFGByia0">Dandy</a>, by the harmless, almost childish Herman’s Hermits is followed by <a target="_blank" href="https://open.spotify.com/track/4uGIJG1jYFonGc4LGp5uQL">Somebody To Love</a>, Jefferson Airplane’s strange, aggressive, drug fuelled, fast paced rock anthem. </p>
+	<p>To get to that result, I subtracted the metrics of each song to the average metrics for the corresponding year. Then, I summed the three scores to reach a zeitgeist index – of course, I did multiply the negative scores by -1, so that one result would not nullify the other. </p>
+	<p>Some of the results were surprisingly meaningful for an automated playlist. For example: the most shocking change in mood comes from 1966 to 1967 – possibly, the most revolutionary year in music history. Dandy, from the harmless, almost childish Herman’s Hermits is followed by Somebody To Love, Jefferson Airplane’s strange, aggressive, drug fuelled, fast paced rock anthem. </p>
     </div>
 	<!-- BACK TO THE BEGINNING -->
 	<h3>Metrics</h3>
 <p>But, an important question: what are these metrics, anyway? And how does Spotify get these numbers? </p>
-<p>There are eleven metrics provided by Spotify, but I selected three as the most significant for this exercise: danceability, which is a good way to assess the quality of the rhythm of a track, energy, which measures pace, loudness and noisiness, and valence, which is the overall mood of the song. A more complete explanation of the metrics can be found <a target="_blank" href="https://developer.spotify.com/web-api/get-audio-features/">here</a>. </p>
-<p>Spotify gets these numbers using signal processing techniques. In 2014, <a target="_blank" href="https://techcrunch.com/2014/03/06/spotify-acquires-the-echo-nest/">they acquired Echo Nest</a>, a company that specialized in these sort of services, to improve playlists and recommendations on their own services. </p>
+<p>There are eleven metrics provided by Spotify, but I selected three as the most significant for this exercise: danceability, which is a good way to assess the quality of the rhythm of a track, energy, which measures pace, loudness and noisiness, and valence, which is the overall mood of the song. A more complete explanation of the metrics can be found here. </p>
+<p>Spotify gets these numbers using signal processing techniques. In 2014, they acquired Echo Nest, a company that specialized in these sort of services, to improve playlists and recommendations on their own services. </p>
 <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
       <p><b><i class="fa fa-user w3-margin-right"></i>The Top 1 playlist</b></p><br>
@@ -250,7 +229,7 @@ var layout = {
 });
   </script></div>
   
-<p>Think of the 1990s. Heavy guitar riffs, heroin addicts wearing flannel shirts singing about suicide. To say that this decade was the exact moment when our popular music started to get darker, sadder and/or angrier is not a surprise by any means. What is surprising, though, is that Celine Dion has more to do with it then Kurt Cobain. </p>
+<p>Think of the 1990s. Heavy guitar riffs, heroin addicts wearing flannel shirts and singing about suicide. To say that this decade was the exact moment when our popular music started to get darker, sadder and angrier is not a surprise by any means. What is surprising, though, is that Celine Dion has more to do with it then Kurt Cobain. </p>
 <p>In 1963, the average valence for a Billboard Top 100 song was 0.69. During the following 25 years, it oscillated between 0.63 and 0.67. Around the end of the 1980s, it started to drop dramatically. First, to around 0.55, in the mid-90s. After a slight and brief recovery in the early 2000s, it dropped again, until it fell below 0.50 in the mid-2010s. </p>
 <p>But why did this happen? One first plausible is that super-euphoric songs have progressively become out of fashion. Between the 1960s and the 1980s, around a third of the songs had an average valence above 0.8. In 2016, only 4 songs were had such a high score. </p> 
 <p>The number of very depressive songs (below 0.2), on the other hand, remained stable over the years. This means that modern pop music tend to be in the mid ranges. </p>
@@ -276,7 +255,7 @@ var layout = {
 });
   </script></div>
   
-  <h3>Majors and minor scales</h3>
+  <h3>Majors and minors</h3>
 <p>What might also have contributed to this decrease in valence of the average hit is the fact minor scales have become more popular amongst composers. Back in the 1950s, between 10% and 20% of the popular songs were written in minor scales, whereas in 2016 43% of the hits were in such keys. </p>
 <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
@@ -310,17 +289,18 @@ $(document).ready(function(){
             <div class="average box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A63AgtDSxDwv7sLx7pnrGoI" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
             <div class="middle box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A1N4cm1Fr8wCKoLsOpGyyBw" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
 	    <div class="sad box"><iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A5P8KJdRsgufFbQsKDUb4Cu" width="300" height="380" frameborder="0" allowtransparency="true"></iframe></div>
-	</div></div>
+	</div>
     
     <!-- Hide this text on small devices NO NO NO MARK IMPORTANT MARK REMEMBER THE MARK -->
     <div class="w3-col m6 w3-padding-large">
-    <p>Usually, minor scales tend to be associated with melancholy, while major scales are usually more upbeat. That does not necessarily mean that every minor melody is depressing, or the other way around. Donna Summer’s <a target="_blank" href="https://open.spotify.com/track/4HUtl3utOjpVEEXiXJmXVj">She Work Hard for the Money</a>, the most upbeat track in the entire dataset, happens to be in G# minor, and R. Kelly’s <a target="_blank" href="https://open.spotify.com/track/2RzJwBCXsS1VnjDm2jKKAa">I Believe I Can Fly</a>, one of the saddest, is in G major. But it usually makes sense. </p>
-<p>To understand this effect, listen to <a target="_blank" href="https://open.spotify.com/track/1tAcmtsjKC0PTJK6LAkJx5">Way To Blue</a>, by Nick Drake. In this song, he alternates minor and major scales back and forth. The melody of the first two verses (“Don’t you have a word to show what may be done / Have you never heard a way to find the sun”) is minor; the follow-up (“Tell me all that you may know / Show me what you have to show”) is major. You can spot the mood swing straight away. </p>
+    <p>Usually, minor scales tend to be associated with melancholy, while major scales are usually more upbeat. That does not necessarily mean that every minor melody is depressing, or the other way around. Donna Summer’s She Work Hard for the Money, the most upbeat track in the entire dataset, happens to be in G# minor, and R. Kelly’s I Believe I Can Fly, one of the saddest, is in G major. But it usually makes sense. </p>
+<p>To understand this effect, listen to Way To Blue, by Nick Drake. In this song, he alternates minor and major scales back and forth. The melody of the first two verses (“Don’t you have a word to show what may be done / Have you never heard a way to find the sun”) is minor; the follow-up (“Tell me all that you may know / Show me what you have to show”) is major. You can spot the difference in mood straight away. </p>
 <p>Since mode might be one of the factors to assess the tracks’ valence ratings, an increase in the proportion minor melodies might reflect on the average valence – and, of course, on the mood of modern music itself. </p>
+ </div>
 <h3>Kurt and Celine</h3>
 <p>It’s hard to pinpoint one specific reason for why euphoric tunes got out of style in the 1990s, or why modern composers tend to like minor scales more than before. What we can say for sure is that grunge has very little to do with it – at least with the metrics themselves. </p>
-<p>The dataset was based on number of singles sold, and <a target="_blank" href="https://open.spotify.com/track/1f3yAtsJtY87CTmM8RLnxf">Smells Like Teen Spirit</a> was the only Nirvana single that made it to the yearly Billboard Top 100 – and, surprisingly, it’s considered a relatively positive song, with a 0.68 valence score. The same goes for pretty much all the grunge artists. </p>
-<p>On the other hand, seven Celine Dion singles from the 90s appear in this data set, and six of them had valence ratings lower than 0.3 – including, of course, <a target="_blank" href="https://open.spotify.com/track/3oEHQmhvFLiE7ZYES0ulzv">My Heart Will Go On</a>. </p>
+<p>The dataset was based on number of singles sold, and Smells Like Teen Spirit was the only Nirvana single that made it to the yearly Billboard Top 100 – and, surprisingly, it’s considered a relatively positive song, with a 0.68 valence score. The same goes for pretty much all the grunge artists. </p>
+<p>On the other hand, seven Celine Dion singles from the 90s appear in this data set, and six of them had valence ratings lower than 0.3 – including, of course, My Heart Will Go On. </p>
 </div>
 
 <!-- Third Parallax Image with Portfolio Text -->
@@ -351,7 +331,7 @@ $(document).ready(function(){
 });
   </script></div>
   
- <p>If there is one single musical feature that changed entirely from the 1940s to the 2000s is the energy. Try talking to your grandparents about music. They’ll probably think the music you listen to – whichever it is – is too loud, too aggressive, too noisy. And you’ll probably fall asleep after no more than 5 minutes listening to whatever your grandpa used to party to back in the day. </p>
+ <p>If there is one single musical feature that changed entirely from the 1940s to the 2000s is the energy. Try talking to your grandparents about music. They’ll probably think the music you listen to – whichever it is – is too loud, too aggressive, too noisy. And you’ll probably fall asleep after no more than 5 minutes listening to what your grandpa used to party to back in the day. </p>
 <p>This is reflected on Spotify. The average score for energy of the greatest hits of the 1940s is below 0.3, whereas, since the mid-1970s, this score has been consistently above 0.6. Part of this evolution can be attributed to studio techniques, which allowed us to record and master louder sounds with much higher definition. </p>
 
 <div class="w3-col m6 w3-center w3-padding-large">
@@ -394,13 +374,13 @@ $(document).ready(function(){
 
 <div class="w3-col m6 w3-padding-large"><p>While the growth in the average energy of music from the 1940s to the 1970s was pretty much steady, since then it has gone up and down periodically. The late 1980s and the 2000s decade were times of highly energetic music, whereas the average energy score declined by almost 10% during the 1990s. And, right now, our music is getting less energetic: it dropped from 0.75 in 2011 to 0.62 last year. </p>
 <h3>The age of dance</h3>
-<p>Although last year’s biggest hits were relatively not energetic, they were certainly danceable. The danceability score for the 2016 were one of the highest of the historic series: 0.66. </p>
+<p>Although last year’s biggest hits were relatively not very energetic, they were certainly danceable. The danceability score for the 2016 were one of the highest of the historic series: 0.66. </p>
 <p>The average danceability score has increased since the 1940s, but not in a dramatic fashion as energy. It rose steadily from a 0.48 average on the 1940s to a 0.64 average on the 1990s, and it has been around that mark for the last 20 years. </p>
 	</div>
 	
   <h3>Metrics</h3>
-<p>But what do they mean by energy and danceability, since they’re very subjective concepts? Energy has to do with loudness, speed, aggressiveness. Heavy metal, for instance, usually scores very high for this – obviously not on this dataset, <a target="_blank" href="https://open.spotify.com/track/4Yx9Tw9dTgQ8eGCq3PRDyn">Raining Blood</a>, by Slayer, scores almost 1 for energy and almost 0 for valence, a typical heavy metal setup. </p>
-<p>It sometimes means that this metric is distorted by loud background noises – <a target="_blank" href="https://open.spotify.com/track/2fkPXXnPh0jhtwcTxLobqd">Svefn-g-englar</a>, by Sigur Rós, has a 0.5 energy score, despite being a 10-minute-long lullaby (also, obviously not on this dataset). </p>
+<p>But what do they mean by energy and danceability, since they’re very subjective concepts? Energy has to do with loudness, speed, aggressiveness. Heavy metal, for instance, usually scores very high for this – obviously not on this dataset, Raining Blood, by Slayer, scores almost 1 for energy and almost 0 for valence, a typical heavy metal setup. </p>
+<p>It sometimes means that this metric is distorted by loud background noises – Svefn-g-englar, by Sigur Rós, has a 0.5 energy score, despite being a 10-minute-long lullaby (also, obviously not on this dataset). </p>
 <p>Danceability is measured based on the track’s “tempo, rhythm stability, beat strength, and overall regularity”. </p>
 <div class="chart-wrapper" id="dancechart"><script type="text/javascript">
     d3.csv('dance.csv', function(error, data) {
@@ -428,149 +408,79 @@ $(document).ready(function(){
 
 <!-- TOP ARTISTS SECTION -->
 
-<div class="w3-content w3-container w3-padding-64" id="topartists">
+<div class="w3-content w3-container w3-padding-64" id="energy">
   <h3 class="w3-center">TOP ARTISTS</h3>
-  <p class="w3-center"><em>The greatest hitmakers of history in one chart.</em></p>
-	<div id="drop" align=center>
-	<script>
+  <p class="w3-center"><em>The greatest (and the not so great) hitmakers of history in one chart.</em></p>
+  <div id="hitmakers"><svg></svg>
+  <script>
+  d3.json("hitmakers.json", function(err, api) {
 
-var margin = {top: 80, right: 180, bottom: 80, left: 180},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+      var w = 960;
+      var h = 500;
 
-var svg = d3.select("#drop").append("svg")
-	.attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-	.append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-d3.tsv("hitmakersbar.tsv", function(error, data){
-
-	// gambiarra
-	var data = data.filter(function(d){return d.gambi == '1';});
-	// Get every column value
-	var elements = Object.keys(data[0])
-		.filter(function(d){
-			return ((d != "gambi") & (d != "artist"));
-		});
-	var selection = elements[0];
-
-	var y = d3.scale.linear()
-			.domain([0, d3.max(data, function(d){
-				return +d[selection];
-			})])
-			.range([height, 0]);
-
-	var x = d3.scale.ordinal()
-			.domain(data.map(function(d){ return d.artist;}))
-			.rangeBands([0, width]);
-
-
-	var xAxis = d3.svg.axis()
-		.scale(x)
-	    .orient("bottom");
-
-	var yAxis = d3.svg.axis()
-		.scale(y)
-	    .orient("left");
-
-	svg.append("g")
-    	.attr("class", "x axis")
-    	.attr("transform", "translate(0," + height + ")")
-    	.call(xAxis)
-    	.selectAll("text")
-    	.style("font-size", "8px")
-      	.style("text-anchor", "end")
-      	.attr("dx", "-.8em")
-      	.attr("dy", "-.55em")
-      	.attr("transform", "rotate(-90)" );
-
-
- 	svg.append("g")
-    	.attr("class", "y axis")
-    	.call(yAxis);
-
-	svg.selectAll("rectangle")
-		.data(data)
-		.enter()
-		.append("rect")
-		.attr("class","rectangle")
-		.attr("width", width/data.length)
-		.attr("height", function(d){
-			return height - y(+d[selection]);
-		})
-		.attr("x", function(d, i){
-			return (width / data.length) * i ;
-		})
-		.attr("y", function(d){
-			return y(+d[selection]);
-		})
-		.append("title")
-		.text(function(d){
-			return d.artist + " : " + d[selection];
-		});
-
-	var selector = d3.select("#drop")
-    	.append("select")
-    	.attr("id","dropdown")
-    	.on("change", function(d){
-        	selection = document.getElementById("dropdown");
-
-        	y.domain([0, d3.max(data, function(d){
-				return +d[selection.value];})]);
-
-        	yAxis.scale(y);
-
-        	d3.selectAll(".rectangle")
-           		.transition()
-	            .attr("height", function(d){
-					return height - y(+d[selection.value]);
-				})
-				.attr("x", function(d, i){
-					return (width / data.length) * i ;
-				})
-				.attr("y", function(d){
-					return y(+d[selection.value]);
-				})
-           		.ease("linear")
-           		.select("title")
-           		.text(function(d){
-           			return d.artist + " : " + d[selection.value];
-           		});
       
-           	d3.selectAll("g.y.axis")
-           		.transition()
-           		.call(yAxis);
-
-         });
-
-    selector.selectAll("option")
-      .data(elements)
-      .enter().append("option")
-      .attr("value", function(d){
-        return d;
+      //counting functions under each API section
+      //this is not quite comprehensive because I arbitrarily removed some
+      //functions that would add clutter, and didn't include sub functions
+      var nested = d3.nest()
+      .key(function(d) { return d.artist})
+      .rollup(function(d) { return d.length })
+      .map(api)
+      
+      var groups = Object.keys(nested);
+      
+      var color = d3.scale.category20c()
+      .domain(groups);
+      
+      var prepArtists = groups.map(function(t) {
+        return {
+          artist: t,
+          children: [{value: nested[t]}]
+        }
       })
-      .text(function(d){
-        return d;
+
+
+      var artistObj = {artist:"API", children:prepArtists};
+
+      var treemap = d3.layout.treemap()
+      .size([w,h])
+      .sort(function(a,b) { return a.value - b.value })
+      .value(function(d) { return d.value })
+      var nodes = treemap.nodes(artistObj)
+
+      var svg = d3.select("svg");
+      var gs = svg.selectAll("g.cell")
+      .data(nodes)
+      .enter()
+      .append("g").classed("cell",true);
+      gs.append("rect")
+      .attr({
+        x: function(d) { return d.x },
+        y: function(d) { return d.y },
+        width: function(d) { return d.dx },
+        height: function(d) { return d.dy}
+      })
+      .style({
+        opacity: function(d) { return !!d.parent },
+        fill: function(d) { if(d.parent) return color(d.parent.artist) }
       })
 
+      svg.selectAll("text.cell")
+      .data(nodes).enter()
+      .append("text")
+      .text(function(d) { if(d.parent && d.parent.artist != "API") return d.parent.artist })
+      .attr({
+        x: function(d) { return d.x + 10 },
+        y: function(d) { return d.y - 10 },
+        transform: function(d) {
+          return "rotate(90," + [d.x, d.y]+")"
+        }
+      })
 
-});
+    });
 
-</script>	
-	</div>	
-<p>Over the last 76 years, 2,850 artists and bands managed to get to the Billboard Top 100 of the year. 354 of them managed to create more than 5 of such hits, and 98 managed to get 10 or more. Only 23 of them managed to have more than 15 tracks on the list – and a few of them are still active. </p>
-<p>The leader of the pack is not – or <a target="_blank" href="http://overmental.com/content/top-10-reasons-some-believe-that-elvis-presley-is-still-alive-part-i/">is he</a>? Elvis Presley managed to get 36 different songs to the top of the charts, from 1956 to 1977. Madonna, though, is just one song behind, with 35. Her latest hit to make it to the charts was from 2008 – <a target="_blank" href="https://open.spotify.com/album/43lok9zd7BW5CoYkXZs7S0">4 Minutes</a>, with Justin Timberlake. But she could drop another couple of singles in the next few years, who knows? </p>
-<p>Although they’re “only” in 5th place, The Beatles’ history of success is no less impressive – in fact, it’s even more. They managed to get 26 hits to Billboard Year End charts between 1964 and 1970 – nobody has ever come even close to having so many hits in so little time (they also charted in 1977, with a re-release of <a target="_blank" href="https://open.spotify.com/track/2qcQSnkcOivjyAAVZoQDVh">Got To Get You Into My Life</a>). What’s even more impressive: Paul (including Wings), John, George and Ringo managed to create 30 hits combined during their solo careers. </p>
-<p> (Fun fact: Ringo had more songs on the list than John and George) </p>
-<p>But some younger artists are doing quite well over the last few years. Rihanna’s success over the last few years is quite impressive, even when compared with older pop stars – 25 hits in 11 years is no a small achievement. Beyoncé, as well, managed to chart with 17 solo tracks and 12 Destiny’s Child singles. </p>
-<div class="w3-center"><p><b>Their most significant hits (according to Spotify metrics)</b></p><br>
-      <iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Achicomares%3Aplaylist%3A4n3Eg123VQw87VODJVQYxB" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>	
-	
-	
-	</div></div>
-	
-	
+</script></div>
+</div>
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64" id="portfolio">
   <h3 class="w3-center">MY WORK</h3>
