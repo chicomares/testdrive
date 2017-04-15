@@ -96,9 +96,11 @@ body, html {
       <i class="fa fa-bars"></i>
     </a>
     <a href="#home" class="w3-bar-item w3-button">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> VALENCE</a>
-    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <a href="#project" class="w3-bar-item w3-button w3-hide-small"> THE PROJECT</a>
+    <a href="#valence" class="w3-bar-item w3-button w3-hide-small"> VALENCE</a>
+    <a href="#energy" class="w3-bar-item w3-button w3-hide-small"> ENERGY & DANCE</a>
+    <a href="#topartists" class="w3-bar-item w3-button w3-hide-small"> TOP ARTISTS</a>
+    <a href="#list" class="w3-bar-item w3-button w3-hide-small"> THE LIST</a>
     <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
       <i class="fa fa-search"></i>
     </a>
@@ -106,11 +108,12 @@ body, html {
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">VALENCE</a>
-    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-  </div>
+    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">THE PROJECT</a>
+    <a href="#valence" class="w3-bar-item w3-button" onclick="toggleFunction()">VALENCE</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">ENERGY & DANCE</a>
+    <a href="#topartists" class="w3-bar-item w3-button" onclick="toggleFunction()">TOP ARTISTS</a>
+    <a href="#list" class="w3-bar-item w3-button" onclick="toggleFunction()">THE LIST</a>
+    </div>
 </div>
 
 <!-- First Parallax Image with Logo Text -->
@@ -7572,7 +7575,28 @@ $(document).ready(function(){
   <p>Based on a template by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
  
+<script>
+	// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card-2" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
+    }
+}
 
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+	</script>
 
 </body>
 </html>
